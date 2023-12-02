@@ -1,0 +1,24 @@
+@import '../../sass/mixins';
+.Skills {
+  .Skills_cont {
+    @include section_content_style;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    @include media(md) {
+      gap: 40px;
+    }
+    @media (min-width: 992px) {
+      padding: 40px 180px;
+    }
+    .Skill {
+      width: 100px;
+      svg {
+        color: var(--mainColor);
+        font-size: 30px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

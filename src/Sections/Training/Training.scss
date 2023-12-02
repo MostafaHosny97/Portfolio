@@ -1,0 +1,11 @@
+@import '../../sass/mixins';
+.Training {
+  .qual_cont {
+    @include qual_cont;
+    .training_company {
+      font-family: var(--fontBase);
+      font-size: 22px;
+      font-weight: 900;
+    }
+  }
+}

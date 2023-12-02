@@ -1,0 +1,125 @@
+@import '../../sass/mixins';
+.landing {
+  height: calc(100vh - 83px);
+  @include media(sm) {
+    padding: 30px 0 !important;
+  }
+  @include media(xs) {
+    height: calc(100vh - 138px);
+  }
+  .profile_holder {
+    position: relative;
+    svg {
+      filter: grayscale(13%);
+      opacity: 0;
+      animation: fadeImg .7s forwards linear;
+    }
+    @media (min-width: 992px) {
+      width: 400px;
+      left: 10%;
+      top: 7%;
+    }
+    @include media(md) {
+      width: 350px;
+      left: 0;
+      top: 15%;
+    }
+    @include media(sm) {
+      width: 300px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 22%;
+    }
+    @include media(xs) {
+      width: 285px;
+      top: 18%;
+    }
+  }
+  .profile_name,
+  .profile_job {
+    position: absolute;
+    color: var(--textColor);
+    left: 60%;
+    font-size: 24px;
+    font-weight: 500;
+    padding: 10px 15px;
+    box-shadow: 0 0 10px var(--mainColor);
+    border-radius: 5px;
+    letter-spacing: 1px;
+    @include media(md) {
+      font-size: 22px;
+      left: 50%;
+    }
+    @include media(sm) {
+      font-size: 20px;
+    }
+    @include media(xs) {
+      font-size: 18px;
+    }
+    span {
+      color: var(--mainColor);
+      font-size: 30px;
+      font-family: var(--fontAlt);
+      display: block;
+      letter-spacing: 0;
+      @include media(md) {
+        font-size: 28px;
+      }
+      @include media(sm) {
+        font-size: 26px;
+      }
+      @include media(xs) {
+        font-size: 22px;
+      }
+    }
+  }
+  .profile_name {
+    top: -100%;
+    min-width: 210px;
+    animation: animeName 2s ease-in-out forwards;
+    @include media(sm) {
+      right: 15px;
+    }
+    @include media(xs) {
+      right: auto;
+      left: 15px;
+      top: 0;
+      transform: scale(0);
+      min-width: auto;
+      max-width: calc(100% - 30px);
+      animation: animeNameXs 1s ease-in-out forwards;
+      animation-delay: .7s;
+    }
+  } 
+  .profile_job {
+    top: -100%;
+    transform: translateY(-100%);
+    animation: animeJob 2s ease-in-out forwards;
+    animation-delay: .4s;
+    min-width: 316px;
+    @include media(sm) {
+      left: 15px;
+    }
+    @include media(xs) {
+      top: 80%;
+      min-width: auto;
+      max-width: calc(100% - 30px);
+      transform: scale(0);
+      animation: animeNameXs 1s ease-in-out forwards;
+      animation-delay: 2.5s;
+    }
+  }
+  .angledown {
+    position: absolute;
+    color: var(--mainColor);
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    opacity: 0;
+    animation: angleDown 1.5s 4.5s infinite ease-in-out;
+    @include media(sm) {
+      bottom: 5px;
+      font-size: 30px;
+    }
+  }
+}

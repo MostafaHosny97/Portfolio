@@ -1,0 +1,148 @@
+@import '../../sass/mixins';
+header {
+  background-color: var(--bgColor);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  transition: var(--mainTransition);
+  &.scroll {
+    box-shadow: 0 0 15px var(--altColor);
+  }
+  .container {
+    @include media(xs) {
+      flex-direction: column;
+    }
+    .logo {
+      width: fit-content;
+      color: var(--textColor);
+      font-family: var(--fontAlt);
+      font-size: 40px;
+      .letterZ {
+        color: var(--mainColor);
+        font-size: 50px;
+      }
+    }
+    nav {
+      @include media('md') {
+        justify-content: flex-end !important;
+      }
+      .pages {
+        @include media('md') {
+          position: absolute;
+          left: 0;
+          top: -600%;
+          opacity: 0;
+          flex-direction: column;
+          width: 100%;
+          border-radius: 10px;
+          transition: 0.5s;
+          background-color: #595959;
+          &.open {
+            opacity: 1;
+            top: 100%;
+            a {
+              width: 100%;
+              padding-left: 20px;
+              color: var(--textColor);
+              &:hover {
+                padding-left: 25px;
+              }
+            }
+          }
+        }
+        a {
+          transition: var(--mainTransition);
+          color: var(--textColor);
+          font-size: 18px;
+          font-weight: 500;
+          padding: 15px;
+          letter-spacing: 1px;
+          &:hover,
+          &.active {
+            color: var(--mainColor);
+          }
+        }
+      }
+      .info {
+        align-items: center;
+        .themeIcon {
+          transition: var(--mainTransition);
+          color: var(--textColor);
+          padding: 15px;
+          font-size: 21px;
+          transition: var(--mainTransition);
+          cursor: pointer;
+          &:hover {
+            color: var(--mainColor);
+          }
+        }
+        > a {
+          transition: var(--mainTransition);
+          svg {
+            color: var(--textColor);
+            padding: 15px;
+            font-size: 21px;
+            transition: var(--mainTransition);
+            cursor: pointer;
+          }
+          $social: 
+          "github" #6cc644,
+          "facebook" #1877f2,
+          "linkedin" #00a0dc;
+          @each $name, $color in $social {
+            &.#{$name} {
+              &:hover {
+                svg {
+                  color: $color;
+                }
+              } 
+            }
+          }
+        }
+        .toggle {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 5px;
+          padding: 15px;
+          cursor: pointer;
+          transition: var(--mainTransition);
+          &:hover {
+            span {
+              background-color: var(--mainColor);
+            }
+          }
+          span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            border-radius: 10px;
+            background-color: var(--textColor);
+            transition: var(--mainTransition);
+            &:nth-child(2) {
+              transition-delay: .1s;
+            }
+          }
+          &.open {
+            gap: 0;
+            span {
+              background-color: var(--mainColor);
+              &:first-child {
+                transition-delay: .2s;
+                transform: translateY(2.5px) rotate(-45deg);
+              }
+              &:nth-child(2) {
+                opacity: 0;
+              }
+              &:last-child {
+                transition-delay: .2s;
+                transform: translateY(-2.5px) rotate(45deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

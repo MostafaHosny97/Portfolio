@@ -1,0 +1,40 @@
+@import '../../sass/mixins';
+.About{
+  .qual_cont {
+    @include qual_cont;
+  }
+  .About_Info {
+    @include section_content_style;
+    margin-top: 50px;
+    .col_info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      p:first-child {
+        color: var(--mainColor);
+        font-weight: 700;
+      }
+      p:last-child {
+        margin-left: 7px;
+        &.gmail {
+          text-transform: lowercase;
+          @media (max-width: 285px) {
+            font-size: 14px;
+          }
+        }
+      }
+      .view {
+        display: inline-block;
+        color: var(--mainColor) !important;
+        margin-left: 15px;
+        padding: 2px 12px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .About_passion {
+    @include qual_cont;
+    margin-top: 50px;
+  }
+}

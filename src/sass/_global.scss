@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500;1,900&family=Rubik+Dirt&display=swap');
+:root {
+  --fontBase: 'Playfair Display', serif;
+  --fontAlt: 'Rubik Dirt', cursive;
+  --mainTransition: .3s;
+  --mainColor: #c8a25a;
+  --altColor: #534666;
+  --textColor: #fff;
+  --bgColor: #1a1719;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--fontBase) !important; 
+  background-color: var(--bgColor);
+  padding-top: 83px;
+  @include media(xs) {
+    padding-top: 138px;
+  }
+  &.light {
+    --textColor: #000;
+    --bgColor: #fff;
+    --mainColor: #bc8827;
+    --altColor: #2d2638;
+    .main_heading {
+      color: var(--altColor);
+      background-color: var(--mainColor);
+      border-color: var(--mainColor);
+      box-shadow: 0 0 20px var(--mainColor);
+    }
+    .custom_button {
+      border: 2px solid var(--mainColor);
+      box-shadow: 0 0 10px var(--mainColor);
+      color: var(--altColor);
+      background-color: var(--mainColor);
+      filter: grayscale(100%);
+      &:hover {
+        filter: grayscale(0);
+      }
+    }
+    .profile_name,
+    .profile_job {
+      background-color: var(--mainColor);
+      span {
+        color: var(--altColor);
+      }
+    }
+    .Projects .projects_hold .project {
+      box-shadow: 0 0 7px var(--altColor);
+      border-color: var(--altColor);
+      &:hover {
+        box-shadow: 0 0 17px var(--altColor);
+      }
+    }
+    .About .About_Info .col_info .view {
+      color: var(--altColor) !important;
+    }
+    .Contact .rowForm .Contact_form form input, .Contact .rowForm .Contact_form form textarea {
+      border: 1px solid rgba($color: #bc8827, $alpha: 0.35);
+    }
+    .Contact_col {
+      background-color: var(--altColor);
+      color: #fff;
+      box-shadow: 0 0 8px var(--altColor);
+    }
+  }
+}
+a {
+  text-decoration: none !important;
+}
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+::selection {
+  background-color: var(--altColor);
+  color: var(--mainColor);
+}
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--bgColor);
+  border-radius: 15px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--mainColor);
+  border-radius: 15px;
+}
+::-webkit-scrollbar-corner {
+  background-color: var(--bgColor);
+}

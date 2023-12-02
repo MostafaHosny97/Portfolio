@@ -1,0 +1,55 @@
+@import '../../sass/mixins';
+.footer {
+  color: var(--textColor);
+  padding: 50px 0;
+  text-align: center;
+  .social {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    li {
+      padding: 5px 10px;
+      a {
+        padding: 5px;
+        color: var(--textColor);
+        transition: var(--mainTransition);
+        position: relative;
+        font-size: 25px;
+        $social: 
+          "Github" #6cc644,
+          "Instagram" #833ab4,
+          "Linkedin" #00a0dc,
+          "Facebook" #1877f2,
+          "Gmail" #fd1d1d,
+          "Messenger" #0084ff,
+          "WhatsApp" #25d366;
+        @each $name, $color in $social {
+          &.#{$name} {
+            @include tooltip($name);
+            &:hover {
+              svg {
+                color: $color;
+              }
+            } 
+          }
+        }
+        svg {
+          transition: var(--mainTransition);
+        }
+      }
+    }
+  }
+  .made {
+    margin-top: 20px;
+    font-size: 19px;
+    span {
+      font-family: var(--fontAlt);
+      color: var(--mainColor);
+      font-size: 30px;
+      margin-left: 5px;
+      @include media(xs) {
+        font-size: 25px;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+@import '../../sass/mixins';
+.Contact {
+  .Contact_col {
+    @include section_content_style;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
+    padding: 20px 40px;
+    @include media(xs) {
+      padding: 15px;
+      flex-direction: column;
+      align-items: center;
+    }
+    svg {
+      color: var(--mainColor);
+      margin-right: 15px;
+      font-size: 28px;
+      padding-top: 5px;
+      @include media(xs) {
+        font-size: 20px;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+    .number {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      @include media(xs) {
+        align-items: center;
+      }
+      h3 {
+        font-weight: 600;
+      }
+      a {
+        font-family: var(--fontAlt);
+        color: var(--mainColor);
+        text-transform: lowercase;
+        @include media(xs) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .rowForm {
+    margin-top: 80px;
+    @include media(md) {
+      margin-top: 0;
+    }
+    img {
+      width: 100%;
+      height: 100%
+    }
+    .Contact_form {
+      text-align: center;
+      form {
+        input,
+        textarea {
+          @include custom_input;
+        }
+        textarea {
+          resize: none;
+        }
+      }
+    }
+  }
+}

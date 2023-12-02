@@ -1,0 +1,92 @@
+@mixin media($screen) {
+  @if ($screen == 'xs') {
+    @media (max-width: 576px) {
+        @content;
+    }
+  }
+  @if ($screen == 'sm') {
+    @media (max-width: 767px) {
+        @content;
+    }
+  }
+  @if ($screen == 'md') {
+    @media (max-width: 991px) {
+        @content;
+    }
+  }
+  @if ($screen == 'lg') {
+    @media (max-width: 1199px) {
+        @content;
+    }
+  }
+  @if ($screen == 'xl') {
+    @media (min-width: 1200px) {
+        @content;
+    }
+  }
+}
+@mixin custom_input {
+  width: 100%;
+  padding: 15px 20px;
+  background: none;
+  border: 1px solid rgba($color: #c8a25a, $alpha: 0.35);
+  margin-bottom: 30px;
+  border-radius: 10px;
+  caret-color: var(--mainColor);
+  color: var(--mainColor);
+  transition: var(--mainTransition);
+  &:focus {
+    outline: none;
+    box-shadow: 1px 0 7px 0 var(--mainColor);
+  }
+}
+@mixin tooltip($name) {
+  &::before {
+    content: $name;
+    position: absolute;
+    width: fit-content;
+    top: -40px;
+    left: -50%;
+    padding: 5px 10px;
+    background-color: var(--mainColor);
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--mainTransition);
+    transform: scale(0);
+  }
+  &:hover {
+    &::before {
+      transform: scale(1);
+    }
+  }
+}
+@mixin section_content_style {
+  padding: 20px;
+  color: var(--textColor);
+  box-shadow: 0 0 4px var(--textColor);
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 19px;
+  font-weight: 500;
+}
+@mixin qual_cont {
+  @include section_content_style;
+  p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    @include media(md){
+      margin-bottom: 25px;
+    }
+    svg {
+      margin: 0 6px;
+      color: var(--mainColor);
+    }
+    span {
+      font-family: var(--fontAlt);
+      font-size: 25px;
+    }
+  }
+}

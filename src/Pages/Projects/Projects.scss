@@ -1,0 +1,60 @@
+@import "../../sass/mixins";
+.Projects {
+  .projects_hold {
+    .project {
+      @include section_content_style;
+      padding: 0;
+      border: 1px solid var(--textColor);
+      border-radius: 10px;
+      overflow: hidden;
+      height: 350px;
+      display: f;
+      cursor: pointer;
+      position: relative;
+      font-size: 22px;
+      transition: var(--mainTransition);
+      &:hover {
+        box-shadow: 0 0 7px var(--textColor);
+        .project_name {
+          filter: grayscale(0);
+        }
+        &:not(.small) {
+          .image_holder {
+            img {
+              transform: translateY(calc(-100% + 295px));
+            }
+          }
+        }
+      }
+      .project_name {
+        background-color: var(--altColor);
+        color: var(--mainColor);
+        padding: 10px 0;
+        font-weight: 600;
+        filter: grayscale(100%);
+        transition: var(--mainTransition);
+      }
+      .github {
+        position: absolute;
+        z-index: 5;
+        right: 10px;
+        top: 11px;
+        color: var(--mainColor);
+        filter: grayscale(100%);
+        transition: var(--mainTransition);
+        &:hover {
+          filter: grayscale(0);
+        }
+      }
+      .image_holder {
+        border: 1px solid var(--textColor);
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          transition: 8s transform;
+        }
+      }
+    }
+  }
+}

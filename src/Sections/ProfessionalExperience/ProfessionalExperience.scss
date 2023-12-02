@@ -1,0 +1,48 @@
+@import "../../sass/mixins";
+.Experience {
+  .main_heading {
+    @include media(xs) {
+      max-width: 240px;
+    }
+  }
+  .qual_cont {
+    @include qual_cont;
+    .Experience_company {
+      font-family: var(--fontBase);
+      font-size: 22px;
+      font-weight: 900;
+    }
+    .qual_cont_info {
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      margin: 0 auto;
+      width: fit-content;
+      gap: 8px;
+      > p {
+        margin-bottom: 0px;
+        display: flex;
+        align-items: center;
+        @include media(sm) {
+          align-items: start;
+        }
+        svg {
+          margin-right: 10px;
+          @include media(sm) {
+            margin-top: 10px;
+          }
+        }
+      }
+      p {
+        margin-bottom: 0px;
+      }
+    }
+    .custom{
+      margin-top: 2rem;
+    }
+    .front{
+      font-size: larger;
+      font-weight: 700;
+    }
+  }
+}
